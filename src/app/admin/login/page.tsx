@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -41,7 +41,9 @@ export default function LoginPage() {
               id="username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUsername(e.target.value)
+              }
               required
             />
           </div>
@@ -51,7 +53,9 @@ export default function LoginPage() {
               id="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
               required
             />
           </div>
