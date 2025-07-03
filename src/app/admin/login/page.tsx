@@ -4,8 +4,6 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -36,8 +34,8 @@ export default function LoginPage() {
         <h1 className="text-2xl font-bold text-center">Admin Login</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="username">Username</Label>
-            <Input
+            <label htmlFor="username" className="text-sm font-medium leading-none">Username</label>
+            <input
               id="username"
               type="text"
               value={username}
@@ -45,11 +43,12 @@ export default function LoginPage() {
                 setUsername(e.target.value)
               }
               required
+              className="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             />
           </div>
           <div>
-            <Label htmlFor="password">Password</Label>
-            <Input
+            <label htmlFor="password" className="text-sm font-medium leading-none">Password</label>
+            <input
               id="password"
               type="password"
               value={password}
@@ -57,6 +56,7 @@ export default function LoginPage() {
                 setPassword(e.target.value)
               }
               required
+              className="flex h-10 w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             />
           </div>
           {error && <p className="text-sm text-red-500">{error}</p>}
